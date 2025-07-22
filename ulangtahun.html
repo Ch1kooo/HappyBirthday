@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background-color: #ffebf3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            z-index: 10;
+        }
+
+        .birthday-card {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .cake-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .cake {
+            position: relative;
+            width: 250px;
+            height: 200px;
+            margin: 0 auto;
+        }
+
+        .plate {
+            width: 300px;
+            height: 30px;
+            background-color: #f0f0f0;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -15px;
+            left: -25px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .layer {
+            position: absolute;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        .layer-bottom {
+            width: 250px;
+            height: 80px;
+            background-color: #f9c5d1;
+            bottom: 0;
+            animation: bounce 2s infinite 0.2s;
+        }
+
+        .layer-middle {
+            width: 200px;
+            height: 60px;
+            background-color: #f2789f;
+            bottom: 80px;
+            left: 25px;
+            animation: bounce 2s infinite 0.4s;
+        }
+
+        .layer-top {
+            width: 150px;
+            height: 40px;
+            background-color: #f999b7;
+            bottom: 140px;
+            left: 50px;
+            animation: bounce 2s infinite 0.6s;
+        }
+
+        .icing-bottom {
+            width: 250px;
+            height: 15px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 70px;
+            border-radius: 5px;
+            animation: bounce 2s infinite 0.2s;
+        }
+
+        .icing-middle {
+            width: 200px;
+            height: 15px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 125px;
+            left: 25px;
+            border-radius: 5px;
+            animation: bounce 2s infinite 0.4s;
+        }
+
+        .icing-top {
+            width: 150px;
+            height: 15px;
+            background-color: #fff;
+            position: absolute;
+            bottom: 165px;
+            left: 50px;
+            border-radius: 5px;
+            animation: bounce 2s infinite 0.6s;
+        }
+
+        .candle {
+            width: 10px;
+            height: 40px;
+            background-color: #ffd166;
+            position: absolute;
+            bottom: 180px;
+            left: 120px;
+            animation: bounce 2s infinite 0.8s;
+        }
+
+        .candle-left {
+            left: 90px;
+        }
+
+        .candle-right {
+            left: 150px;
+        }
+
+        .flame {
+            width: 15px;
+            height: 30px;
+            background-color: #ffef9f;
+            border-radius: 50% 50% 20% 20%;
+            position: absolute;
+            top: -25px;
+            left: -2.5px;
+            animation: flicker 0.5s infinite alternate;
+            box-shadow: 0 0 20px #ffef9f, 0 0 40px #ffef9f, 0 0 60px #ffef9f;
+        }
+
+        .message {
+            margin-top: 30px;
+        }
+
+        .message h1 {
+            color: #d23669;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            animation: textPulse 2s infinite;
+        }
+
+        .message p {
+            color: #ff6b81;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 1s forwards 1s;
+        }
+
+        .quote-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            margin-top: 0px;
+        }
+
+        .quote {
+            color: #c04f60;
+            font-size: 1.5rem;
+            max-width: 100000px;
+            padding: 0px;
+            opacity: 0;
+            animation: fadeIn 4s forwards 2s;
+            text-align: center;
+            font-style: bold;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #f00;
+            opacity: 0;
+            animation: confetti-fall infinite linear forwards;
+            z-index: 1;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        @keyframes flicker {
+            0% { transform: scale(1); opacity: 1; }
+            100% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        @keyframes confetti-fall {
+            0% { 
+                transform: translateY(-100vh) rotate(0deg); 
+                opacity: 1;
+            }
+            100% { 
+                transform: translateY(100vh) rotate(720deg); 
+                opacity: 0;
+            }
+        }
+
+        @keyframes textPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="birthday-card">
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="plate"></div>
+                    <div class="layer layer-bottom"></div>
+                    <div class="layer layer-middle"></div>
+                    <div class="layer layer-top"></div>
+                    <div class="icing-bottom"></div>
+                    <div class="icing-middle"></div>
+                    <div class="icing-top"></div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle candle-left">
+                        <div class="flame"></div>
+                    </div>
+                    <div class="candle candle-right">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="message">
+                <h1>Happy Birthday!</h1>
+                <p>Wish You All The Best !</p>
+            </div>
+        </div>
+        <div class="quote-container">
+            <div class="quote">
+                Happy Birthday XY. Happy Sweet Seventeen alsoo. Semoga di Ulang Tahun yang ke-17 ini, 
+                kamu bisa mendapatkan nilai raport yang kamu inginkan dan bisa masuk ke Universitas China yang kamu impikan.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            function createConfetti() {
+                const colors = ['#ff9a8b', '#ff6b81', '#ffd166', '#06d6a0', '#118ab2', '#ef476f', '#8338ec'];
+                
+                for (let i = 0; i < 150; i++) {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    
+                    const size = Math.random() * 15 + 5;
+                    const color = colors[Math.floor(Math.random() * colors.length)];
+                    const left = Math.random() * 100;
+                    const animationDuration = Math.random() * 3 + 3;
+                    const delay = Math.random() * 5;
+                    const shape = Math.random() > 0.5 ? '50%' : '0';
+                    
+                    confetti.style.width = `${size}px`;
+                    confetti.style.height = `${size}px`;
+                    confetti.style.backgroundColor = color;
+                    confetti.style.left = `${left}vw`;
+                    confetti.style.animationDuration = `${animationDuration}s`;
+                    confetti.style.animationDelay = `${delay}s`;
+                    confetti.style.borderRadius = shape;
+                    
+                    if (shape === '0') {
+                        confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                    }
+                    
+                    document.body.appendChild(confetti);
+                }
+            }
+            
+            createConfetti();
+            
+            setInterval(() => {
+                const flames = document.querySelectorAll('.flame');
+                flames.forEach(flame => {
+                    const randomScale = 0.9 + Math.random() * 0.3;
+                    flame.style.transform = `scale(${randomScale})`;
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
